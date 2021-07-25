@@ -15,7 +15,9 @@
         <button type="button" value="Submit" onclick = "ReadForm()"> Submit </button>
     </form>
     <div id="ChooseRC"></div>
-        
+    <br>
+    <p>The time is:</p>
+    <div id="TheTime"></div>
     <script type="text/javascript">
         function ReadForm() {
             var choice = document.getElementsByName("rc");
@@ -27,6 +29,25 @@
             }
             document.getElementById("ChooseRC").innerHTML = output;
         }
+
+
+        function TellTheTime() {
+            var MachineTime = new Date()
+            var hour = MachineTime.getHours();
+            var minute = MachineTime.getMinutes();
+            if (minute<10) {
+                minute = "0"+minute
+            }
+            var second = MachineTime.getSeconds();
+            if (second<10) {
+                second = "0"+second
+            }
+            var time = hour+":"+minute+":"+second;
+            document.getElementById("TheTime").innerHTML = time;
+            setTimeout(TellTheTime,1000);
+        }
+        TellTheTime();
+        
     </script>
     
 </body>
