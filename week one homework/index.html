@@ -9,11 +9,25 @@
 <body>
     <h1>Select your route choice</h1>
     <form>
-    <input type="radio" name="rc" value="left"> Left <br>
-    <input type="radio" name="rc" value="straight"> Straight <br>
-    <input type="radio" name="rc" value="right"> Right <br>
-    <button type="button" value="submit">Submit</button>
+        <input type="radio" name="rc" value="Left"> Left <br>
+        <input type="radio" name="rc" value="Straight"> Straight <br>
+        <input type="radio" name="rc" value="Right"> Right <br>
+        <button type="button" value="Submit" onclick = "ReadForm()"> Submit </button>
     </form>
-    <div class="EndOfRC"></div>
+    <div id="ChooseRC"></div>
+        
+    <script type="text/javascript">
+        function ReadForm() {
+            var choice = document.getElementsByName("rc");
+            var output = choice[0].value;
+            for (var i = 0; i < choice.length; i++){
+                if (choice[i].checked == 1) {
+                output = choice[i].value;
+                }
+            }
+            document.getElementById("ChooseRC").innerHTML = output;
+        }
+    </script>
+    
 </body>
 </html>
